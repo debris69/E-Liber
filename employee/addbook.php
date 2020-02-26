@@ -16,7 +16,7 @@
 
     if($connection->query($query)==TRUE){
       echo "<script> alert('Book added to database!!');
-      window.location.replace('add-books.html');
+      window.location.replace('add-books.php');
       </script>";
     }
   }

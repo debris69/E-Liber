@@ -14,6 +14,52 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/addbooks.css">
+
+    <script type="text/javascript">
+
+      //update count function
+      function submitForm(x,z){
+        var y = 'count-';
+        y = y.concat(x);
+        document.getElementById('update-ct').value = document.getElementById(y).value;
+        document.getElementById('update-id').value = z;
+        document.getElementById('update-count').submit();
+
+      }
+    </script>
+
+    <style media="screen">
+
+    .update-result{
+      overflow: scroll;
+    }
+    .update-list{
+      margin-left: 18px;
+      margin-top: 9 px;
+    }
+
+    .update-result{
+      margin-top: 45px;
+    }
+
+    .update-list th{
+      font-family: Roboto;
+      text-align: center;
+      padding: 6px;
+      background: #010a43;
+      color: #f1f3f4;
+    }
+    .update-list td{
+      font-family: Roboto;
+      text-align: center;
+      background: #fcf8e8;
+      border: .5px solid grey;
+    }
+    .count{
+      width:60px;
+    }
+
+    </style>
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-sm bg-light navbar-light">
@@ -53,15 +99,30 @@
 
     <div class="main">
 
+      <form id="update-count" action="update-count.php" method="post" style="display: none;">
+        <input type="number" name="id" id="update-id" value="">
+        <input type="number" name="count" id="update-ct" value="">
+      </form>
+
       <div class="col-md-4 update-stock">
         <h3>Update Existing Book Count</h3>
         <div class="search-section">
-          <input type="text" class="search-box" name="" value="" placeholder="Search to update">
+          <form id="update-form" action="updatelist.php" method="post">
+
+
+          <input type="text" class="search-box" name="srchtxt" value="" placeholder="Search to update">
           <select class="dropdown" name="option">
             <option value="name">Book Name</option>
             <option value="id">Book ID</option>
           </select>
-          <button type="button" class="btn btn-primary" name="button">Search</button>
+          <button type="button" class="btn btn-primary" name="update" onclick="document.getElementById('update-form').submit();">Search</button>
+        </form>
+        </div>
+
+        <div class="update-result">
+          <script>
+            document.getElementsByClassName('update-result')[0].innerHTML = "<?php echo $_SESSION['update-list'] ?>"
+          </script>
         </div>
 
       </div>
