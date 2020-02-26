@@ -30,16 +30,32 @@
 
     <style media="screen">
 
-    .update-result{
-      overflow: scroll;
+    ::-webkit-scrollbar {
+      width: 3px;
     }
-    .update-list{
-      margin-left: 18px;
-      margin-top: 9 px;
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #3d3d3d;
     }
 
     .update-result{
-      margin-top: 45px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      height: 500px;
+    }
+    .update-list{
+      margin-left: 18px;
+      margin-top: 0px;
+
+    }
+
+    .update-result{
+      margin-top: 13px;
     }
 
     .update-list th{

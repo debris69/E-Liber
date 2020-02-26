@@ -7,17 +7,23 @@
   $count = $_POST['count'];
   $tags = $_POST['tags'];
 
+
+
   include('connection.php');
   if(mysqli_connect_errno())
     echo "Failed to connect to server ".mysqli_connect_error()."</br>";
   else{
-    $query = "insert into book(name,author,year,genre,type,count,tags) values('$name','$author'
+    $query = "insert into book(name,author,year,genre,type,count,tags) values(\"$name\",'$author'
     ,$year,'$genre','$type',$count,'$tags')";
 
+    echo $query;
     if($connection->query($query)==TRUE){
       echo "<script> alert('Book added to database!!');
       window.location.replace('add-books.php');
       </script>";
+    }
+    else{
+
     }
   }
  ?>
