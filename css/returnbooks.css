@@ -1,0 +1,32 @@
+html{
+  font-family: Roboto;
+}
+
+
+.return-books{
+    background: #f1f1f1;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 7%;
+    border-radius: 22px;
+    padding: 30px;
+    height: 700px;
+}
+
+.borrowed-results{
+
+    margin: 90px;
+    padding: 30px;
+}
+
+h2{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 300;
+
+}
+
+.h  {
+  margin-left: 310px;
+  margin-right: 100px;
+}

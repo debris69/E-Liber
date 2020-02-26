@@ -1,0 +1,38 @@
+h2{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 300;
+}
+.myaccount{
+  background: #f1f1f1;
+  width: 30%;
+  padding: 40px;
+  border-radius: 23px;
+  margin-left: 35%;
+  margin-top: 100px;
+}
+
+.img-user{
+  background-color: #91a3a1;
+  height: 200px;
+  width: 200px;
+  margin-left: 29%;
+  margin-top: 45px;
+
+  border-radius: 58%;
+}
+
+table{
+  margin-top: 50px;
+  margin-bottom: 35px;
+}
+
+td{
+    font-family: Roboto;
+    padding: 15px;
+
+}
+
+#headlines{
+  font-weight: bold;
+}

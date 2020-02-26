@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Member LogIn/SignUp</title>
+    <link rel="stylesheet" href="../css/login.css">
+
+  </head>
+  <body>
+    <div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="register.php" method="POST" id="register-form">
+      <a href="../index.html"><img class="logo" src="../img/logo.png" alt=""></a>
+
+			<h1>Create Account</h1>
+
+			<input type="text" name="name" placeholder="Name" />
+			<input type="email" name="email" placeholder="Email" />
+			<input type="password"  name="password"  placeholder="Password" />
+			<button onclick="document.getElementById('register-form').submit();">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="login.php" method="POST" id="login-form">
+      <a href="../index.html"><img class="logo" src="../img/logo.png" alt=""></a>
+			<h1>Sign in</h1>
+
+			<input type="email" name="email" placeholder="Email" />
+			<input type="password" name="password" placeholder="Password" />
+
+			<button onclick="document.getElementById('login-form').submit();">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Member!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+  </body>
+  <script src="../js/login.js" charset="utf-8"></script>
+</html>

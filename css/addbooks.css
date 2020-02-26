@@ -1,0 +1,87 @@
+.update-stock{
+  float: left;
+  display: inline-block;
+  background: #f1f1f1;
+  width: 45%;
+  margin-left: 190px;
+  margin-top: 20px;
+  border-radius: 22px;
+  padding: 30px;
+  height: 700px;
+}
+
+.update-stock h3{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 350;
+}
+
+.add-books{
+  float: left;
+  display: inline-block;
+  background: #f1f1f1;
+  width: 45%;
+  margin-left: 120px;
+  margin-top: 20px;
+  border-radius: 22px;
+  padding: 30px;
+  height: 700px;
+}
+
+.add-books h3{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 350;
+}
+
+.search-box{
+  margin-right: 15px;
+}
+
+.dropdown{
+  height: 40px;
+  font-family: Roboto;
+  font-size: 90%;
+  margin-right: 20px;
+}
+
+.btn{
+  height: 40px;
+  font-family: Roboto;
+}
+
+.addbook-form{
+    margin-top: 50px;
+    padding: 30px;
+}
+
+td{
+  font-family: Roboto;
+  text-align: left;
+}
+
+.input-box{
+  width:220px;
+  height: 40px;
+  padding: 3px;
+  font-family:Roboto;
+  margin-left: 40px;
+
+  font-size: 90%;
+
+}
+
+
+.type{
+  width: 220px;
+
+  padding: 3px;
+  height: 40px;
+  margin-left: 40px;
+}
+
+.submit{
+  margin-left: 42%;
+  margin-top: 30px;
+  width: 120px;
+}

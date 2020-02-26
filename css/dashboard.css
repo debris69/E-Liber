@@ -1,0 +1,136 @@
+
+
+body{
+  background: url(index-bg.png) no-repeat 50% 50%;
+	background-size: cover;
+}
+
+.main{
+  margin-top: 60px;
+}
+.nav-item{
+  margin-right: 18px;
+}
+
+.row{
+  margin-right: 3px;
+}
+.borrowed-books{
+
+  background: #f1f1f1;
+  width: 15%;
+  margin-left: 30px;
+  margin-top: 20px;
+  border-radius: 22px;
+  padding: 30px;
+  height: 500px;
+}
+
+.borrowed-books h3{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 350;
+}
+
+p{
+  font-family: Roboto;
+  text-align: center;
+}
+
+.search-books{
+  background: #f1f1f1;
+  width: 45%;
+  margin-left: 30px;
+  margin-top: 20px;
+  border-radius: 22px;
+  padding: 30px;
+  height: 800px;
+}
+
+.search-books h3{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 350;
+
+}
+
+.search-box{
+  width: 50%;
+  height: 40px;
+  margin-left: 40px;
+  margin-right: 20px;
+  float: left;
+  padding: 5px;
+}
+
+.search-section{
+  margin-top: 22px;
+}
+
+.borrowed-results{
+  margin-top: 22px;
+}
+
+.issue-requests{
+  float: left;
+  display: inline-block;
+  background: #f1f1f1;
+  width: 45%;
+
+
+  margin-left: 240px;
+  margin-top: 20px;
+  border-radius: 22px;
+  padding: 30px;
+  height: 800px;
+}
+
+.issue-requests h3{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 350;
+}
+
+.new-members{
+  float: left;
+  display: inline-block;
+  background: #f1f1f1;
+  width: 45%;
+  background: #f1f1f1;
+  width: 45%;
+  margin-left: 90px;
+  margin-top: 20px;
+  border-radius: 22px;
+  padding: 30px;
+  height: 800px;
+}
+
+.new-members h3{
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 350;
+}
+
+.issue-results{
+    padding: 30px;
+}
+
+.member-results{
+  padding: 30px;
+}
+
+.smile{
+  height: 50px;
+  margin-left: 45%;
+  margin-top: 10px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+p{
+  margin-top: 12px;
+}
+
+.btn{
+  height: 40px;
+  font-family: Roboto;
+}
