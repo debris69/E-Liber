@@ -23,7 +23,7 @@
       $i = 0;
       while($row= $result->fetch_assoc()){
 
-        $var = $var."<tr> <td>".$row['id']."</td><td>".$row['name']."</td><td> <input type='number' class='count' id='count-$i' value='{$row['count']}'>"."</td><td><input type='submit' value='Change' class='btn btn-primary' onclick='submitForm($i,{$row['id']});'></td> </form></tr>";
+        $var = $var."<tr> <td>".$row['id']."</td><td>".$row['name']."</td><td> <input type='number' class='count' id='count-$i' value='{$row['count']}'>"."</td><td><input type='submit' value='Change' class='btn btn-warning' onclick='submitForm($i,{$row['id']});'></td> </form></tr>";
         $i += 1;
       }
       $var = $var."</table>";
