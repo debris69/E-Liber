@@ -14,6 +14,55 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/manage.css">
+    <script type="text/javascript">
+
+    </script>
+    <style media="screen">
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #3d3d3d;
+    }
+
+    .search-result{
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      height: 500px;
+    }
+
+    .member-list{
+      margin-top: 25px;
+    }
+
+    .search-result p{
+      margin-top: 40px;
+      font-family: Roboto;
+      font-size: 130%;
+    }
+
+    .member-list th{
+      font-family: Roboto;
+      text-align: center;
+      padding: 15px 50px;
+      background: #010a43;
+      color: #f1f3f4;
+    }
+
+    .member-list td{
+      font-family: Roboto;
+      text-align: center;
+      background: #fcf8e8;
+      border-bottom: .3px solid grey;
+    }
+
+    </style>
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-sm bg-light navbar-light">
@@ -56,16 +105,20 @@
       <div class="col-md-8 member-manage">
         <h3>Manage Members</h3>
         <div class="search-section">
-          <input type="text" class="search-box" name="" value="" placeholder="Search Member">
+          <form id="member-search" action="memberlist.php" method="post">
+          <input type="text" class="search-box" name="srchtxt" value="" placeholder="Search Member">
           <select class="dropdown" name="option">
             <option value="all">All</option>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </select>
-          <button type="button" class="btn btn-primary" name="button">Search</button>
+          <button type="button" class="btn btn-primary" onclick="document.getElementById('member-search').submit();" name="button">Search</button>
+        </form>
         </div>
         <div class="search-result">
-
+          <script>
+            document.getElementsByClassName('search-result')[0].innerHTML="<?php echo $_SESSION['member-list'] ?>";
+          </script>
         </div>
       </div>
 
