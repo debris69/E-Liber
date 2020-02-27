@@ -11,7 +11,7 @@
       $query = "select * from employee where name like '%{$search}%'";
       $result = $connection->query($query) or die($connection->error);
       if(mysqli_num_rows($result)>0){
-        $var = "<table align='center' cellpadding='16' class='employee-list'><tr><th>ID</th> <th>Name</th> <th> E-mail </th> <th> Role </th> </tr>";
+        $var = "<style> .employee-list th{ padding: 15px 105px; }</style> <table align='center' cellpadding='16' class='employee-list'><tr><th>ID</th> <th>Name</th> <th> E-mail </th> <th> Role </th> </tr>";
         while($row = $result->fetch_assoc()){
           $var = $var."<tr><td>".$row['id']."</td><td>".$row['name']."</td><td>".$row['email']."</td><td>".$row['role']."</td></tr>";
         }
