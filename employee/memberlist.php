@@ -43,7 +43,7 @@
       if(mysqli_num_rows($result)>0){
         $var = "<table align='center' cellpadding='16' class='member-list'><tr> <th>ID</th> <th>Name</th> <th> E-mail </th> <th> Status </th> <th> Change</th></tr>";
         while($row = $result->fetch_assoc()){
-          $var = $var ."<tr><td>{$row['id']}</td><td>{$row['name']}</td><td>{$row['email']}</td><td>{$row['status']}</td><td><button class='btn btn-danger' onclick='activate({$row['id']})'>Activate</button></td></tr>";
+          $var = $var ."<tr><td>{$row['id']}</td><td>{$row['name']}</td><td>{$row['email']}</td><td>{$row['status']}</td><td><button class='btn btn-success' onclick='activate({$row['id']})'>Activate</button></td></tr>";
         }
         $var = $var."</table>";
       }

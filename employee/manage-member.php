@@ -14,9 +14,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/manage.css">
-    <script type="text/javascript">
 
+    <script type="text/javascript">
+      function activate(x){
+        document.getElementById('status-id').value=x;
+        document.getElementById('status-status').value='ACTIVE';
+        document.getElementById('status-form').submit();
+      }
+      function deactivate(x){
+        document.getElementById('status-id').value=x;
+        document.getElementById('status-status').value='INACTIVE';
+        document.getElementById('status-form').submit();
+      }
     </script>
+
     <style media="screen">
     ::-webkit-scrollbar {
       width: 3px;
@@ -33,12 +44,12 @@
     .search-result{
       overflow-y: scroll;
       overflow-x: hidden;
-
-      height: 500px;
+      margin-top: 25px;
+      height: 600px;
     }
 
     .member-list{
-      margin-top: 25px;
+      margin-top: 0px;
     }
 
     .search-result p{
@@ -101,6 +112,11 @@
     </nav>
 
     <div class="main">
+
+      <form id="status-form" action="update-status.php" method="post" style="display: none;">
+          <input type="number" name="id" id="status-id" value="">
+          <input type="text" name="status"  id="status-status" value="">
+      </form>
 
       <div class="col-md-8 member-manage">
         <h3>Manage Members</h3>
