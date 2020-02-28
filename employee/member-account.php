@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if ($_SESSION['active']!='yes')
+  if ($_SESSION['active-emp']!='yes')
     header('Location: ../index.html');
  ?>
 <!DOCTYPE html>

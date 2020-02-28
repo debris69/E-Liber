@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if ($_SESSION['active']!='yes')
+  if ($_SESSION['active-emp']!='yes')
     header('Location: ../index.html');
  ?>
 <!DOCTYPE html>
@@ -14,6 +14,72 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/issuerequest.css">
+    <style media="screen">
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #3d3d3d;
+    }
+
+    .issue-results{
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 600px;
+      margin-left: 0px;
+      margin-top: 60px;
+    }
+
+
+    .issue-list th{
+      font-family: Roboto;
+      text-align: center;
+      padding: 15px 30px;
+      background: #010a43;
+      color: #f1f3f4;
+    }
+    .issue-list td{
+      font-family: Roboto;
+      text-align: center;
+      background: #fcf8e8;
+      padding: 15px 30px;
+      border-bottom: .3px solid grey;
+    }
+
+      .drpdwn{
+        width: 260px;
+        height: 40px;
+        padding: 5px;
+        margin-left: 180px;
+        margin-right: 30px;
+        float: left;
+        font-family: Roboto;
+      }
+      .btn{
+        float:left;
+      }
+      .srch-section{
+        margin-top: 20px;
+      }
+
+    </style>
+    <script type="text/javascript">
+      function accept(x){
+        document.getElementById('response-id').value=x;
+        document.getElementById('response').value = 'accept';
+        document.getElementById('response-form').submit();
+      }
+      function reject(x){
+        document.getElementById('response-id').value=x;
+        document.getElementById('response').value = 'reject';
+        document.getElementById('response-form').submit();
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-sm bg-light navbar-light">
@@ -52,11 +118,27 @@
     </nav>
 
     <div class="main">
+      <form id="response-form" action="update-response.php" method="post" style="display:none;">
+        <input type="number" name="id" id='response-id' value="">
+        <input type="text" name="response" id='response' value="">
+      </form>
       <div class="col-md-8 issue-requests">
         <h3>Issue Requests</h3>
+        <div class="srch-section">
+          <form class="" action="issuelist.php" method="post">
+            <select class="drpdwn" name="option">
+              <option value="pending">Pending</option>
+              <option value="accepted">Accepted</option>
+              <option value="rejected">Rejected</option>
+              <option value="all">All</option>
+            </select>
+            <input type="submit" class="btn btn-primary" name="" value="Get Requests">
+          </form>
+        </div>
         <div class="issue-results">
-          <img src="../img/smile.svg" class="smile" alt="">
-          <p>There are no pending issue requests!!</p>
+          <script type="text/javascript">
+            document.getElementsByClassName('issue-results')[0].innerHTML="<?php echo $_SESSION['request-list'] ?>";
+          </script>
         </div>
       </div>
 

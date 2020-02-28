@@ -27,6 +27,11 @@
       $result = $result->fetch_assoc();
       $_SESSION['cart']=$result['count'];
 
+      $query = "select count(*) as count from borrowed_book where member={$_SESSION['id']}";
+      $result = $connection->query($query) or die($connection->error);
+      $result = $result->fetch_assoc();
+      $_SESSION['borrowed']=$result['count'];
+
 
 
 

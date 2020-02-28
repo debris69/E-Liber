@@ -5,6 +5,25 @@
   if ($_SESSION['status']=='INACTIVE'){
     echo "<script> alert('Your membership is not active!');</script>";
   }
+
+  include('connection.php');
+  if($_SESSION['borrowed']!=0){
+    if(mysqli_connect_errno())
+      echo mysqli_connect_error();
+    else{
+      $query = "select book.name from book inner join borrowed_book where borrowed_book.book = book.id and borrowed_book.member={$_SESSION['id']}";
+      $result = $connection->query($query) or die($connection->error);
+      if(mysqli_num_rows($result)>0){
+        $var = "<table align='center' class='borrow-list'> <tr><th>Name</th></tr>";
+        while($row = $result->fetch_assoc()){
+          $var = $var."<tr><td>{$row['name']}</td></tr>";
+        }
+        $var = $var."</table>";
+      }
+
+      $_SESSION['dash-borrow'] = $var;
+    }
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -60,6 +79,22 @@
       width: 84%;
     }
 
+    .borrow-list th{
+      font-family: Roboto;
+      text-align: center;
+      padding: 15px 60px;
+      background: #010a43;
+      color: #f1f3f4;
+    }
+
+    .borrow-list td{
+      font-family: Roboto;
+      text-align: center;
+      padding: 70px 59px;
+      border: .5px solid grey;
+      background: #fcf8e8;
+    }
+
     </style>
     <script type="text/javascript">
       function add(x){
@@ -105,8 +140,10 @@
         <div class="col-md-3 borrowed-books">
           <h3>Borrowed Books</h3>
           <div class="borrowed-results">
-            <img src="../img/book.svg" class="smile" alt="">
-            <p>You don't have any borrowed books!!</p>
+            <img src='../img/book.svg' class='smile'><p>You don't have any borrowed books!!</p>
+            <script type="text/javascript">
+              document.getElementsByClassName('borrowed-results')[0].innerHTML = "<?php echo $_SESSION['dash-borrow']; ?>";
+            </script>
           </div>
 
         </div>

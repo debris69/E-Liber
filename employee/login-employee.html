@@ -4,7 +4,40 @@
     <meta charset="utf-8">
     <title>Employee SignUp/Login</title>
     <link rel="stylesheet" href="../css/login.css">
+    <script type="text/javascript">
+    function validate(){
+      var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+      var name = document.getElementById('reg-name').value;
+      var email = document.getElementById('reg-email').value;
+      var pwd = document.getElementById('reg-pwd').value;
 
+
+
+      if(!regName.test(name)){
+        alert('Please enter your full name (first & last name).');
+        return;
+      }
+
+      else{
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+        {
+          if(pwd.value.length==0){
+            alert('Password cannot be blank!');
+            return false;
+          }
+          else{
+            document.getElementById('register-form').submit();
+          }
+
+        }
+        else{
+          alert("You have entered an invalid email address!");
+          return false;
+        }
+      }
+
+    }
+    </script>
   </head>
   <body>
     <div class="container" id="container">
@@ -13,10 +46,10 @@
       <a href="../index.html"><img class="logo" src="../img/logo.png" alt=""></a>
 			<h1>Create Account</h1>
 
-			<input type="text" name="name" placeholder="Name" />
-			<input type="email" name="email" placeholder="Email" />
-			<input type="password" name="password" placeholder="Password" />
-			<button onclick="document.getElementById('register-form').submit();">Sign Up</button>
+			<input type="text" name="name" id="reg-name" placeholder="Name" />
+			<input type="email" name="email" id="reg-email" placeholder="Email" / required>
+			<input type="password" name="password" id="reg-pwd" placeholder="Password" / required>
+			<button onclick="validate();">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">

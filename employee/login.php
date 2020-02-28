@@ -20,7 +20,7 @@
     //password match and session storing
     if($result['email']==$email && $result['password']==$pass){
       session_start();
-      $_SESSION['active']='yes';
+      $_SESSION['active-emp']='yes';
       $_SESSION['name']=$result['name'];
       $_SESSION['id']=$result['id'];
       $_SESSION['email']=$result['email'];
@@ -28,7 +28,7 @@
 
       //inactive account check
       if(strlen($_SESSION['role'])==0){
-        $_SESSION['active']='no';
+        $_SESSION['active-emp']='no';
         echo "<script> alert(' Hello {$_SESSION["name"]}!! Your account is not active yet! Contact Admin!');
         window.location.replace('../index.html');
         </script>";
@@ -45,7 +45,7 @@
 
 
     }
-    
+
     //unsucessful login redirect
     else{
       echo "<script> alert('Login Unsucessful! No Match Found!!');

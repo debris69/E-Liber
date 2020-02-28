@@ -20,8 +20,9 @@
           $var = $var."<tr><td>{$row['id']}</td><td>{$row['name']}</td><td><button class='btn btn-success' onclick='send({$row['cartid']});'>Send</button></td><td><button class='btn btn-danger' onclick='remove({$row['cartid']});'>Remove</button></td></tr>";
         }
         $var= $var."</table>";
+        $_SESSION['cart-list']= $var;
       }
-      $_SESSION['cart-list']=$var;
+
     }
   }
 
