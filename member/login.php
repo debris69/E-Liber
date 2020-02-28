@@ -22,6 +22,14 @@
       $_SESSION['status']=$result['status'];
 
 
+      $query = "select count(*) as count from issue_cart where member={$_SESSION['id']}";
+      $result = $connection->query($query) or die($connection->error);
+      $result = $result->fetch_assoc();
+      $_SESSION['cart']=$result['count'];
+
+
+
+
       echo "<script> alert('Login Successful! Hello {$_SESSION["name"]}');
         window.location.replace('dashboard-member.php');
         </script>";

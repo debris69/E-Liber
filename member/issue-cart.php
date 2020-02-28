@@ -3,6 +3,30 @@
   if ($_SESSION['active']!='yes')
     header('Location: ../index.html');
  ?>
+
+ <?php
+  $id = $_SESSION['id'];
+
+  include('connection.php');
+  if($_SESSION['cart']!=0){
+    if(mysqli_connect_errno())
+      echo "Failed to connect to server".mysqli_connect_error()."</br>";
+    else{
+      $query = "select book.id,book.name,issue_cart.id as cartid from issue_cart inner join book where book.id=issue_cart.book and member=$id ";
+      $result = $connection->query($query) or die($connection->error);
+      if(mysqli_num_rows($result)>0){
+        $var = "<table align='center' class='cart-list'> <tr><th>Book Id</th> <th> Name </th> <th> Send Request </th> <th>Remove</th> </tr>";
+        while($row = $result->fetch_assoc()){
+          $var = $var."<tr><td>{$row['id']}</td><td>{$row['name']}</td><td><button class='btn btn-success' onclick='send({$row['cartid']});'>Send</button></td><td><button class='btn btn-danger' onclick='remove({$row['cartid']});'>Remove</button></td></tr>";
+        }
+        $var= $var."</table>";
+      }
+      $_SESSION['cart-list']=$var;
+    }
+  }
+
+
+  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,6 +38,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/issuecart.css">
+    <style media="screen">
+      .cart-list th{
+        font-family: Roboto;
+        text-align: center;
+        padding: 15px 30px;
+        background: #010a43;
+        color: #f1f3f4;
+      }
+      .cart-list td{
+        font-family: Roboto;
+        text-align: center;
+        background: #fcf8e8;
+        padding: 12px 50px;
+        border: .5px solid grey;
+      }
+    </style>
+    <script type="text/javascript">
+      function send(x){
+        document.getElementById('send-id').value=x;
+        document.getElementById('send-form').submit();
+      }
+      function remove(x){
+        document.getElementById('delete-id').value=x;
+        document.getElementById('delete-form').submit();
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-sm bg-light navbar-light">
@@ -44,14 +94,24 @@
     </nav>
 
     <div class="main">
+      <form id="send-form" action="send-request.php" method="post" style="display:none;">
+        <input type="number" name="id" id="send-id" value="">
+      </form>
+      <form id="delete-form" action="delete-item.php" method="post" style="display:none;">
+        <input type="number" name="id" id="delete-id" value="">
+      </form>
       <div class="col md-5 issue-books">
-        <h2>Issue Books</h2>
+        <h2>Issue Request</h2>
         <div class="cart-results">
           <img src="../img/cart.svg" class="smile" alt="">
           <p>Your cart is empty!!</p>
+          <script type="text/javascript">
+            var y = <?php echo $_SESSION['cart']; ?>;
+            if(y>0){
+              document.getElementsByClassName('cart-results')[0].innerHTML = "<?php echo $_SESSION['cart-list']?>";
+            }
+          </script>
         </div>
-        <button type="button" name="button" class="btn btn-success h">Issue Request</button>
-        <button type="button" name="button" class="btn btn-primary" onclick="window.location.href='dashboard-member.html'" >Go Back</button>
       </div>
 
     </div>
