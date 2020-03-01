@@ -16,14 +16,16 @@
     $query = "insert into book(name,author,year,genre,type,count,tags) values(\"$name\",'$author'
     ,$year,'$genre','$type',$count,'$tags')";
 
-    
+
     if($connection->query($query)==TRUE){
       echo "<script> alert('Book added to database!!');
       window.location.replace('add-books.php');
       </script>";
     }
     else{
-
+      echo "<script> alert('Insertion failed!!');
+      window.location.replace('add-books.php');
+      </script>";
     }
   }
  ?>

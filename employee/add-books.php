@@ -145,23 +145,23 @@
       <div class="col-md-4 add-books">
         <h3>Add New Book</h3>
         <div class="addbook-form">
-          <form class="" action="addbook.php" method="post">
+          <form id="addform" action="addbook.php" method="post" >
             <table cellpadding="10" align="center">
             <tr>
               <td>Name</td>
-              <td> <input type="text" name="name" value="" class="input-box"> </td>
+              <td> <input type="text" name="name" value="" class="input-box" required> </td>
             </tr>
             <tr>
               <td>Author</td>
-              <td> <input type="text" name="author" value="" class="input-box"> </td>
+              <td> <input type="text" name="author" value="" class="input-box" required> </td>
             </tr>
             <tr>
               <td>Year</td>
-              <td> <input type="text" name="year" value="" class="input-box" > </td>
+              <td> <input type="tel" pattern="[0-9]{4}" name="year" value="" class="input-box"  required> </td>
             </tr>
             <tr>
               <td>Genre</td>
-              <td> <input type="text" name="genre" value="" class="input-box"> </td>
+              <td> <input type="text" name="genre" value="" class="input-box" required> </td>
             </tr>
             <tr>
               <td>Type</td>
@@ -172,14 +172,14 @@
             </tr>
             <tr>
               <td>Count</td>
-              <td> <input type="number" name="count" value="" class="input-box"> </td>
+              <td> <input type="number" name="count" value="" class="input-box" required> </td>
             </tr>
             <tr>
               <td>Tags</td>
-              <td> <input type="text" name="tags" value="" class="input-box" placeholder=""> </td>
+              <td> <input type="text" name="tags" value="" class="input-box" placeholder="" required> </td>
             </tr>
           </table>
-          <input type="submit" class="btn btn-primary submit" name="submit" value="Add Book">
+          <input type="submit" class="btn btn-primary submit"  name="submit" value="Add Book">
           </form>
         </div>
       </div>

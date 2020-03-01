@@ -5,7 +5,7 @@
   if(mysqli_connect_errno())
     echo "Failed to connect to server".mysqli_connect_error()."</br>";
   else{
-    $query = "select * from book where name like '%$search%' or author like '%$search%' or genre like '%$search%' or year like '%$search%' or type like '%$search%' or tags like '%$search%' and count!=0";
+    $query = "select * from book where (name like '%$search%' or author like '%$search%' or genre like '%$search%' or year like '%$search%' or type like '%$search%' or tags like '%$search%') and count!=0";
 
     $result = $connection->query($query) or die($connection->error);
 
