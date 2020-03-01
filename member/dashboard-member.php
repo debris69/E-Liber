@@ -24,6 +24,9 @@
       $_SESSION['dash-borrow'] = $var;
     }
   }
+  else{
+    $_SESSION['dash-borrow'] = "<img src='../img/book.svg' class='smile'><p>You don't have any borrowed books!!</p>";
+  }
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

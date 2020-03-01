@@ -17,8 +17,7 @@
         $var = $var."</table>";
       }
       else{
-        $var = "<img src=\"../img/smile.svg\" class=\"smile\" >
-        <p>There are no pending issue requests!!</p>";
+        $var = "<img src='../img/smile.svg' class='smile' ><p>There are no pending issue requests!!</p>";
       }
     }
 
