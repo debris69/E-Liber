@@ -38,7 +38,7 @@
       $query = "select issue_request.id, member.name as member, book.name as book from issue_request inner join book inner join member where issue_request.book = book.id and issue_request.member = member.id and response='REJECTED'";
       $result = $connection->query($query) or die($connection->error);
       if(mysqli_num_rows($result)>0){
-        $var = "<table align='center' conclass='issue-list'> <tr> <th>ID</th> <th>Book</th> <th>Member</th>  </tr>";
+        $var = "<table align='center' class='issue-list'> <tr> <th>ID</th> <th>Book</th> <th>Member</th>  </tr>";
         while($row = $result->fetch_assoc()){
           $var = $var."<tr><td>{$row['id']}</td><td>{$row['book']}</td><td>{$row['member']}</td></tr>";
         }
