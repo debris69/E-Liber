@@ -9,7 +9,7 @@
   if($_SESSION['status']!='INACTIVE'){
     if($_SESSION['cart']<2){
       if(mysqli_connect_errno())
-        echo "Failed to connect to server ".mysqli_connect_errno()."</br>";
+        echo "Failed to connect to server ".mysqli_connect_error()."</br>";
       else{
         $query = "insert into issue_cart(member,book) values($id,$book)";
         if($connection->query($query)==TRUE){
