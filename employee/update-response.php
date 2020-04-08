@@ -29,7 +29,7 @@
             $query = "insert into borrowed_book(member,book) values({$result['member']},{$result['book']})";
             if($connection->query($query)==TRUE){
               $_SESSION['request-list'] = '';
-              echo "<script> alert('Response recorded!!');
+              echo "<script> alert('Response recorded!! Request Accepted!!');
               window.location.replace('issue-requests.php');
               </script>";
             }
@@ -50,7 +50,7 @@
       $query = "update issue_request set response='REJECTED', employee={$_SESSION['id']}, response_time=CURRENT_TIMESTAMP where id=$id";
       if($connection->query($query)==TRUE){
         $_SESSION['request-list'] = '';
-        echo "<script> alert('Response recorded!!');
+        echo "<script> alert('Response recorded!! Request Rejected!!');
         window.location.replace('issue-requests.php');
         </script>";
       }

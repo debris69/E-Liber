@@ -27,6 +27,9 @@
       }
 
     }
+    else{
+      echo $connection->error;
+    }
 
 
 

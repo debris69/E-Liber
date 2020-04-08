@@ -5,7 +5,6 @@
   $book = $_POST['book'];
 
   include('connection.php');
-
   if($_SESSION['status']!='INACTIVE'){
     if($_SESSION['cart']<2){
       if(mysqli_connect_errno())
@@ -19,7 +18,6 @@
           </script>";
         }
         else{
-          echo $query;
           echo "error".$connection->error;
         }
       }
