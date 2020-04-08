@@ -11,7 +11,7 @@
     if($connection->query($query)==TRUE){
       session_start();
       $_SESSION['update-list']='';
-      echo "<script> alert('Book count updated!!');
+      echo "<script> alert('Book count updated!! Number Available: $count');
       window.location.replace('add-books.php');
       </script>
       ";
